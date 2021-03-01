@@ -5,6 +5,7 @@ import eeg_voltage_heatmap_dynamic
 
 
 app = dash.Dash()
+server = app.server
 app.layout = html.Div([
     dcc.Graph(figure=eeg_voltage_heatmap_dynamic.generate_plot())
 ])
