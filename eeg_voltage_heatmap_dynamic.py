@@ -1,9 +1,11 @@
 import pandas as pd
 import plotly.express as px
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def generate_plot():
-    df = pd.read_csv("VoltageTimeSeries_Updated.csv")
-    df_peripheral = pd.read_csv("129Channels_v2.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/devindhaliwal/EEG-Plots/main/EEG%20Volatage%20Heatmap/VoltageTimeSeries_Updated.csv", sep=",")
+    df_peripheral = pd.read_csv("https://raw.githubusercontent.com/devindhaliwal/EEG-Plots/main/129Channels_v2.csv", sep=",")
     df_peripheral.rename(columns={"Unnamed: 0": "Electrode"}, inplace=True)
     df_peripheral.fillna(0, inplace=True)
     df_peripheral.drop(columns=["X", "Y", "Z"], inplace=True)
