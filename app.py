@@ -10,5 +10,6 @@ app.layout = html.Div([
     dcc.Graph(figure=eeg_voltage_heatmap_dynamic.generate_plot())
 ])
 
-app.run_server(debug=False, use_reloader=True)
+if __name__ == "__main__":
+    app.run_server(debug=False, use_reloader=True)
 
